@@ -3,15 +3,14 @@ import { ComponentProps } from "react";
 import { fn } from "storybook/test";
 import ToggleSwitch from "./ToggleSwitch";
 
-type StoryProps = ComponentProps<typeof ToggleSwitch>;
+type StoryProps = ComponentProps<typeof ToggleSwitch> & {
+  darkThemeControl: boolean;
+};
 
 const meta: Meta<StoryProps> = {
   component: ToggleSwitch,
   args: {
     onChange: fn(),
-  },
-  argTypes: {
-    darkTheme: { control: "boolean" },
   },
 };
 

@@ -1,15 +1,13 @@
 import { ComponentPropsWithoutRef, useState } from "react";
+import { useTheme } from "../../../context/ThemeContext";
 
 type ToggleSwitchProps = {
   onChange?: ComponentPropsWithoutRef<"input">["onChange"];
-  darkTheme: boolean;
 };
 
-export default function ToggleSwitch({
-  onChange,
-  darkTheme,
-}: ToggleSwitchProps) {
+export default function ToggleSwitch({ onChange }: ToggleSwitchProps) {
   const [checked, setChecked] = useState(false);
+  const { darkTheme, setDarkTheme } = useTheme();
 
   function handleToggle(e: React.ChangeEvent<HTMLInputElement>): void {
     setChecked(!checked);
@@ -18,7 +16,7 @@ export default function ToggleSwitch({
 
   return (
     <div
-      className={`flex flex-col w-max p-8 gap-2 justify-center place-items-center rounded-md shadow-xl  ${darkTheme ? "bg-slate-800 shadow-amber-200" : "bg-slate-100 shadow-blue-500"}`}
+      className={`flex flex-col w-max p-8 gap-2 justify-center place-items-center rounded-md shadow-md ${darkTheme ? "bg-slate-800 shadow-amber-200" : "bg-slate-100 shadow-blue-500"}`}
     >
       <div className="toggle-switch relative w-16 h-8">
         <input
