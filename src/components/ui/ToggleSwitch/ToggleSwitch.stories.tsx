@@ -3,9 +3,7 @@ import { ComponentProps } from "react";
 import { fn } from "storybook/test";
 import ToggleSwitch from "./ToggleSwitch";
 
-type StoryProps = ComponentProps<typeof ToggleSwitch> & {
-  darkThemeControl: boolean;
-};
+type StoryProps = ComponentProps<typeof ToggleSwitch>;
 
 const meta: Meta<StoryProps> = {
   component: ToggleSwitch,
@@ -18,6 +16,6 @@ export default meta;
 
 type Story = StoryObj<StoryProps>;
 
-export const Toggle: Story = {
+export const ToggleSwitchStory: Story = {
   args: {},
 };
